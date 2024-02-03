@@ -11,3 +11,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.food {
+  border: 2px solid red;
+  padding: 10px; 
+  display: flex;
+  margin: auto; 
+  max-width: 900px;
+  min-height: 150px;
+}
+
+.food h2 {
+  min-width: 170px;
+}
+
+.food h4 {
+  min-width: 100px;
+}
+
+.food * {
+  margin: 5px;
+}
+
+.food img {
+  width: 100px;
+  object-fit: cover;
+}
+
+.food #sale {
+  background-color: salmon;
+  color: white;
+  align-self: center;
+}
