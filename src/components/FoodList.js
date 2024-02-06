@@ -1,17 +1,23 @@
 import Food from './Food';
+import Card from './Card';
+import Welcome from './Welcome';
 
 function FoodList (props) {
 
     console.log(props.foods);
 
+
     return (
         <>
-            <h1>Food list is working!</h1>
-            { props.foods.map(food => 
-                <Food data={food}/>
+            <Welcome>
+                Food list is working!
+            </Welcome>
+            { props.foods.map((food, i) => 
+                <Card key={i} index={i}>
+                    <Food data={food} />
+                </Card>
             ) }
         </>
-
     );
 }
 
