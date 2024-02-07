@@ -10,6 +10,28 @@ import styled from 'styled-components';
 const Welcome = styled.h1`
     text-align: center;
     color: blue;
+    border: ${props => props.borderWeight}px solid blue;
+
+    &:hover {
+        background-color: lightblue;
+    }
+
+    span {
+        background-color: yellow;
+    }
+
+    @media (max-width: 600px) {
+        background-color: aqua;
+    }
+
 `;
 
 export default Welcome;
+
+
+
+// <h1 class="myh1">Blahblah</h1>
+
+
+// .myh1 { text-align: center.... }
+// .myh1:hover { border: .... }

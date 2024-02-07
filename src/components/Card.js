@@ -1,4 +1,5 @@
 import './Card.css';
+import styles from './Card.module.css';
 
 function Card(props) {
 
@@ -12,7 +13,7 @@ function Card(props) {
     // }
 
     return (
-        <div className={`card ${props.index%2 ? 'whiteBg' : 'grayBg'}`}>
+        <div className={`card ${props.index%2 ? 'whiteBg' : 'grayBg'} ${styles.food}`}>
             {props.children}
         </div>
     );

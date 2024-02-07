@@ -1,6 +1,5 @@
 import Food from './Food';
 import Card from './Card';
-import Welcome from './Welcome';
 
 function FoodList (props) {
 
@@ -9,12 +8,10 @@ function FoodList (props) {
 
     return (
         <>
-            <Welcome>
-                Food list is working!
-            </Welcome>
+            <span>New span</span>
             { props.foods.map((food, i) => 
                 <Card key={i} index={i}>
-                    <Food data={food} />
+                    <Food data={food}/>
                 </Card>
             ) }
         </>

@@ -12,36 +12,6 @@ code {
     monospace;
 }
 
-
-.food {
-  padding: 10px; 
-  display: flex;
-  min-height: 150px;
-}
-
-.food h2 {
-  min-width: 170px;
-}
-
-.food h4 {
-  min-width: 100px;
-}
-
-.food * {
-  margin: 5px;
-}
-
-.food img {
-  width: 100px;
-  object-fit: cover;
-}
-
-.food #sale {
-  background-color: salmon;
-  color: white;
-  align-self: center;
-}
-
 .card {
   border: 1px solid black;
   border-radius: 15px;

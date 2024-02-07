@@ -1,0 +1,36 @@
+.food {
+    padding: 10px; 
+    display: flex;
+    min-height: 150px;
+  }
+  
+  .name {
+    min-width: 170px;
+  }
+  
+  .price {
+    min-width: 100px;
+  }
+  
+  .food * {
+    margin: 5px;
+  }
+  
+  .image {
+    width: 100px;
+    object-fit: cover;
+  }
+  
+  .sale {
+    background-color: salmon;
+    color: white;
+    align-self: center;
+  }
+
+  .red {
+    color: red;
+  }
+
+  .black {
+    color: black;
+  }
