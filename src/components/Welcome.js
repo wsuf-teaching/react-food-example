@@ -27,11 +27,3 @@ const Welcome = styled.h1`
 `;
 
 export default Welcome;
-
-
-
-// <h1 class="myh1">Blahblah</h1>
-
-
-// .myh1 { text-align: center.... }
-// .myh1:hover { border: .... }

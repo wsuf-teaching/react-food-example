@@ -21,5 +21,3 @@ function Food(props) {   // display component
 }
 
 export default Food;
-
-// style={{color: props.data.price < 10 ? "red" : "black"}}

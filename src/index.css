@@ -20,3 +20,7 @@ code {
   margin: 15px auto; 
 }
 
+.container {
+  max-width: 900px; 
+  margin: 15px auto;
+}
