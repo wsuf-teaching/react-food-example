@@ -1,0 +1,22 @@
+.newfood {
+    max-width: 500px;
+    margin: auto;
+ }
+ 
+ .newfood form {
+    display: flex;
+    align-items: center;
+    align-content: stretch;
+    flex-direction: column;
+ }
+ 
+ 
+ .newfood form * {
+    width: 100%;
+    box-sizing: border-box;
+ }
+ 
+ .newfood button {
+    margin: 10px;
+    padding: 5px;
+ }

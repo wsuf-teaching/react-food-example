@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import FoodList from './components/FoodList';
 import mockFoods from './mockdata/foods';
 import Welcome from './components/Welcome';
+import NewFood from './components/NewFood';
+import Card from './components/Card';
 
 function App() {
 
@@ -25,7 +27,7 @@ function App() {
       description: "Pizza is a dish of Italian origin consisting of a usually round, flat base of leavened wheat-based dough.",
       price: 8
     };
-    const newFoods = [...foods, newFood];
+    const newFoods = [newFood, ...foods];
     setFoods(newFoods);
   }
 
@@ -36,7 +38,10 @@ function App() {
           Hello dear user!
       </Welcome> */}
 
-      <h1 style={{textAlign:"center"}}>{title}</h1>
+      <h1 style={{textAlign:"center"}}>{title}</h1>      
+      <Card>
+        <NewFood/>
+      </Card>
       <button onClick={() => handleButtonClick("John")}>click me!</button>
       <button onClick={handleChangeTitle}>Change title</button>
       <button onClick={handleAddFood}>Add Food</button>
