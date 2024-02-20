@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import FoodList from './components/FoodList';
-import mockFoods from './mockdata/foods';
+
 import Welcome from './components/Welcome';
 import NewFood from './components/NewFood';
 import Card from './components/Card';
@@ -10,7 +10,17 @@ function App() {
   console.log("App is evaluated");
 
   const [title, setTitle] = useState("Food!");
-  const [foods, setFoods] = useState(mockFoods);
+  const [foods, setFoods] = useState();
+
+
+  useEffect( ()=>{
+    fetch("http://127.0.0.1:5000/foods")
+      .then(response => response.json())
+      .then(data => {setFoods(data);})
+      .catch(error => console.log(error));
+   }, []);
+
+
 
   const handleButtonClick = (param) => {
     alert('You clicked me. ' + param);
@@ -27,8 +37,11 @@ function App() {
       description: "Pizza is a dish of Italian origin consisting of a usually round, flat base of leavened wheat-based dough.",
       price: 8
     };
-    const newFoods = [newFood, ...foods];
-    setFoods(newFoods);
+    setFoods([...foods, newFood]);
+  }
+
+  const addNewFoodHandler = (newFood) => {
+    setFoods([...foods, newFood]);
   }
 
 
@@ -40,7 +53,7 @@ function App() {
 
       <h1 style={{textAlign:"center"}}>{title}</h1>      
       <Card>
-        <NewFood/>
+        <NewFood onAddNewFood={addNewFoodHandler}/>
       </Card>
       <button onClick={() => handleButtonClick("John")}>click me!</button>
       <button onClick={handleChangeTitle}>Change title</button>

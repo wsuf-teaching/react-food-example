@@ -9,7 +9,7 @@ function FoodList (props) {
     return (
         <>
             <span>New span</span>
-            { props.foods.map((food, i) => 
+            { props.foods && props.foods.map((food, i) => 
                 <Card key={i} index={i}>
                     <Food data={food}/>
                 </Card>
