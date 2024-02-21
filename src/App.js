@@ -1,64 +1,21 @@
-import React, {useState, useEffect} from 'react';
-import FoodList from './components/FoodList';
-
-import Welcome from './components/Welcome';
-import NewFood from './components/NewFood';
-import Card from './components/Card';
+import {Route, Routes, Link} from "react-router-dom";
+import Login from './pages/Login';
+import Hello from './pages/Hello';
+import Home from './pages/Home';
+import Layout from './components/Layout';
 
 function App() {
 
-  console.log("App is evaluated");
-
-  const [title, setTitle] = useState("Food!");
-  const [foods, setFoods] = useState();
-
-
-  useEffect( ()=>{
-    fetch("http://127.0.0.1:5000/foods")
-      .then(response => response.json())
-      .then(data => {setFoods(data);})
-      .catch(error => console.log(error));
-   }, []);
-
-
-
-  const handleButtonClick = (param) => {
-    alert('You clicked me. ' + param);
-  }
-
-  const handleChangeTitle = () => {
-    setTitle("Order Food!");
-  }
-
-  const handleAddFood = () => {
-    const newFood = {
-      name: "Pizza",
-      url: "https://www.mindmegette.hu/images/388/Social/lead_Social_pizza-alap-recept.jpg",
-      description: "Pizza is a dish of Italian origin consisting of a usually round, flat base of leavened wheat-based dough.",
-      price: 8
-    };
-    setFoods([...foods, newFood]);
-  }
-
-  const addNewFoodHandler = (newFood) => {
-    setFoods([...foods, newFood]);
-  }
-
-
   return (
     <div className="container">
-      {/* <Welcome borderWeight={3}>
-          Hello dear user!
-      </Welcome> */}
 
-      <h1 style={{textAlign:"center"}}>{title}</h1>      
-      <Card>
-        <NewFood onAddNewFood={addNewFoodHandler}/>
-      </Card>
-      <button onClick={() => handleButtonClick("John")}>click me!</button>
-      <button onClick={handleChangeTitle}>Change title</button>
-      <button onClick={handleAddFood}>Add Food</button>
-      <FoodList foods={foods}/>
+      <Routes>
+        <Route exact path="/" element={<Home/>}></Route>
+        <Route path="/hello" element={<Hello/>}></Route>
+        <Route path="/second" element={<Layout><h1>This is the second part!</h1></Layout>}></Route>
+        <Route path="/mylogin" element={<Login/>}></Route>
+        <Route path="*" element={<h1>404 not found</h1>}></Route>
+      </Routes>
     </div>
   );
 
