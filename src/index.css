@@ -24,3 +24,7 @@ code {
   max-width: 900px; 
   margin: 15px auto;
 }
+
+ul li a.active {
+  border: 2px dashed black;
+}

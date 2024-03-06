@@ -1,13 +1,23 @@
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 function Layout(props) {
+
+
+    const customNavLinkStyle = ({isActive, isPending, isTransitioning}) => {
+        return {
+            fontWeight: isActive ? "bold" : "",
+            color: isPending ? "red" : "black"
+        }
+    }
+
     return (
         <>
             <ul>
-                <li><Link to="/hello">Hello</Link></li>
-                <li><Link to="/mylogin">Login</Link></li>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/second">Second page</Link></li>
+                <li><NavLink to="/hello" style={customNavLinkStyle}>Hello</NavLink></li>
+                <li><NavLink to="/cart" style={customNavLinkStyle}>Cart</NavLink></li>
+                <li><NavLink to="/mylogin" style={customNavLinkStyle}>Login</NavLink></li>
+                <li><NavLink to="/" style={customNavLinkStyle}>Home</NavLink></li>
+                <li><NavLink to="/second" style={customNavLinkStyle}>Second page</NavLink></li>
             </ul>
             {props.children}
         </>

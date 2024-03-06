@@ -1,11 +1,18 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import FoodList from '../components/FoodList';
 import Welcome from '../components/Welcome';
 import NewFood from '../components/NewFood';
 import Card from '../components/Card';
 import Layout from '../components/Layout';
+import TestContext from "../index";
+import CartContext from '../context/cart-context';
 
 const Home = React.memo(() => {
+
+    const ctx = useContext(TestContext);
+    console.log(ctx);
+
+    const cartCtx = useContext(CartContext);
 
     console.log("App is evaluated");
 
@@ -44,6 +51,10 @@ const Home = React.memo(() => {
       setFoods([...foods, newFood]);
     }
 
+    const handleClearCart = () => {
+      cartCtx.clearCart();
+    }
+
     return (
         <Layout>
             {/* <Welcome borderWeight={3}>
@@ -57,6 +68,7 @@ const Home = React.memo(() => {
             <button onClick={() => handleButtonClick("John")}>click me!</button>
             <button onClick={handleChangeTitle}>Change title</button>
             <button onClick={handleAddFood}>Add Food</button>
+            <button onClick={handleClearCart}>Clear cart</button>
             {/* {foods && <FoodList foods={foods}/>}
             {!foods && <h4>Loading...</h4>} */}
             {foods ? <FoodList foods={foods}/> : <h4>Loading...</h4>}
